@@ -54,7 +54,7 @@ class MainActivity : ComponentActivity() , View.OnClickListener {
 
         if (textA.isBlank() || textB.isBlank()) {
             // Display a message or handle the empty input case
-            resultTv.text = "Please enter values in both fields!"
+            resultTv.text = "Please enter values in both fields."
             return
         }
 
