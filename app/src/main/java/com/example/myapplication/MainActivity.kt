@@ -18,14 +18,14 @@ import com.example.myapplication.ui.theme.MyApplicationTheme
 
 class MainActivity : ComponentActivity() , View.OnClickListener {
 
-    lateinit var btnAdd : Button
-    lateinit var btnSub : Button
-    lateinit var btnMultiply : Button
-    lateinit var btnDivision : Button
-    lateinit var etA : EditText
-    lateinit var etB : EditText
-    lateinit var resultTv : TextView
-
+    lateinit var btnAdd: Button
+    lateinit var btnSub: Button
+    lateinit var btnMultiply: Button
+    lateinit var btnDivision: Button
+    lateinit var btnAC: Button
+    lateinit var etA: EditText
+    lateinit var etB: EditText
+    lateinit var resultTv: TextView
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -38,31 +38,66 @@ class MainActivity : ComponentActivity() , View.OnClickListener {
         etA = findViewById(R.id.et_a)
         etB = findViewById(R.id.et_b)
         resultTv = findViewById(R.id.result_tv)
+        btnAC = findViewById(R.id.btn_AC)
 
         btnAdd.setOnClickListener(this)
         btnSub.setOnClickListener(this)
         btnMultiply.setOnClickListener(this)
         btnDivision.setOnClickListener(this)
+        btnAC.setOnClickListener(this)
+
     }
 
     override fun onClick(v: View?) {
-        var a = etA.text.toString().toDouble()
-        var b = etB.text.toString().toDouble()
-        var result = 0.0
-        when(v?.id){
-            R.id.btn_add ->{
-                result = a + b
-            }
-            R.id.btn_sub ->{
-                result = a - b
-            }
-            R.id.btn_multiplication ->{
-                result = a * b
-            }
-            R.id.btn_division ->{
-                result = a / b
-            }
+        val textA = etA.text.toString()
+        val textB = etB.text.toString()
+
+        if (textA.isBlank() || textB.isBlank()) {
+            // Display a message or handle the empty input case
+            resultTv.text = "Please enter values in both fields!"
+            return
         }
-        resultTv.text = "Result is $result"
+
+        try {
+            val a = textA.toDouble()
+            val b = textB.toDouble()
+
+            var result = 0.0
+
+            when (v?.id) {
+                R.id.btn_add -> {
+                    result = a + b
+                }
+
+                R.id.btn_sub -> {
+                    result = a - b
+                }
+
+                R.id.btn_multiplication -> {
+                    result = a * b
+                }
+
+                R.id.btn_division -> {
+                    if (b != 0.0) {
+                        result = a / b
+                    } else {
+                        // Handle division by zero
+                        resultTv.text = "Cannot divide by zero!"
+                        return
+                    }
+                }
+
+                R.id.btn_AC -> {
+                    etA.text.clear()
+                    etB.text.clear()
+                    resultTv.text = "Cleared!"
+                    return
+                }
+            }
+
+            resultTv.text = "Result is: $result"
+        } catch (e: NumberFormatException) {
+            resultTv.text = "Invalid input. Please enter valid numbers."
+        }
     }
 }
