@@ -12,8 +12,12 @@
         android:id="@+id/et_a"
         android:layout_margin="12dp"
         android:hint="Enter A... "
-        android:background="#ffffff"
-        android:textColor="#333333"/>
+        android:background="@drawable/roundstyle"
+        android:backgroundTint="#96C7FC"
+        android:textColor="#333333"
+        android:padding="12dp"
+        android:textSize="18sp"
+        android:inputType="numberDecimal"/>
 
     <EditText
         android:id="@+id/et_b"
@@ -21,8 +25,12 @@
         android:layout_height="wrap_content"
         android:layout_margin="12dp"
         android:hint="Enter B... "
-        android:background="#ffffff"
-        android:textColor="#333333"/>
+        android:background="@drawable/roundstyle"
+        android:backgroundTint="#96C7FC"
+        android:textColor="#333333"
+        android:padding="12dp"
+        android:textSize="18sp"
+        android:inputType="numberDecimal"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -36,8 +44,11 @@
             android:id="@+id/btn_add"
             android:layout_margin="4dp"
             android:text="+"
-            android:background="#3498db"
-            android:textColor="#ffffff"/>
+            android:background="@drawable/roundstyle"
+            android:backgroundTint="#3498db"
+            android:textColor="#ffffff"
+            android:textSize="30sp"/>
+
         <Button
             android:layout_width="0dp"
             android:layout_weight="1"
@@ -45,26 +56,35 @@
             android:id="@+id/btn_sub"
             android:layout_margin="4dp"
             android:text="-"
-            android:background="#3498db"
-            android:textColor="#ffffff"/>
+            android:background="@drawable/roundstyle"
+            android:backgroundTint="#3498db"
+            android:textColor="#ffffff"
+            android:textSize="30sp"/>
+
         <Button
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
             android:id="@+id/btn_multiplication"
             android:layout_margin="4dp"
-            android:text="*"
-            android:background="#3498db"
-            android:textColor="#ffffff"/>
+            android:text="×"
+            android:background="@drawable/roundstyle"
+            android:backgroundTint="#3498db"
+            android:textColor="#ffffff"
+            android:textSize="30sp"/>
+
         <Button
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
             android:id="@+id/btn_division"
             android:layout_margin="4dp"
-            android:text="/"
-            android:background="#3498db"
-            android:textColor="#ffffff"/>
+            android:text="÷"
+            android:background="@drawable/roundstyle"
+            android:backgroundTint="#3498db"
+            android:textColor="#ffffff"
+            android:textSize="30sp"/>
+
         <Button
             android:layout_width="0dp"
             android:layout_weight="1"
@@ -72,8 +92,10 @@
             android:id="@+id/btn_AC"
             android:layout_margin="4dp"
             android:text="AC"
-            android:background="#3498db"
-            android:textColor="#ffffff"/>
+            android:background="@drawable/roundstyle"
+            android:backgroundTint="#3498db"
+            android:textColor="#ffffff"
+            android:textSize="30sp"/>
 
     </LinearLayout>
 
@@ -81,10 +103,20 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Result:"
-        android:textSize="24sp"
+        android:textSize="36sp"
         android:gravity="center"
         android:id="@+id/result_tv"
         android:layout_margin="20dp"
-        android:textColor="#2ecc71"/>
+        android:textColor="#27AB5F"/>
+
+    <TextView
+        android:id="@+id/et_text"
+        android:layout_width="match_parent"
+        android:layout_height="340dp"
+        android:layout_margin="20dp"
+        android:gravity="center"
+        android:text=""
+        android:textColor="#000000"
+        android:textSize="24sp" />
 
 </LinearLayout>
